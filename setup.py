@@ -4,7 +4,7 @@ __version__ = "1.0"
 setup(
     name="cses-problem-set",
     version=__version__,
-    python_requires="~=3.7.5",
+    python_requires="~=3.7",
     install_requires=[],
     extras_require={
         "tests": ["black~=19.10b0", "mypy>=0.780", "pytest>=5.4.2", "pytest-cov>=2.9.0"]

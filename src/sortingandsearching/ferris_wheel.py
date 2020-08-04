@@ -27,7 +27,9 @@ Output:
 
 See https://cses.fi/problemset/task/1090
 SOLUTION
-Pick the children from lightest to heaviest.
+Sort the children by weight. Start with the heaviest child and try to pair with the lightest child.
+If the lightest child cannot be added to the gondola, then the heavy child must take the gondola alone,
+because there isn't a lighter child.
 Time O(N lg N)
 Space O(1)
 """
@@ -37,21 +39,26 @@ from typing import List
 def gondolas(max_weight: int, weights: List[int]) -> int:
     weights.sort()
     res: int = 0
-    curr: int = 0
-    for w in weights:
-        if curr > 0:
+    i = 0
+    j = len(weights) - 1
+    curr = weights[j]
+    # a pair of slots under consideration
+    slots = 1
+    # i must not meet j, cannot pair with ownself
+    while i < j:
+        is_heavy_child_taken = False
+        if slots == 2:  # successful pairing
+            is_heavy_child_taken = True
+        elif curr + weights[i] > max_weight:  # heavy child takes the gondola alone
+            is_heavy_child_taken = True
+        if is_heavy_child_taken:
             res += 1
-            if curr + w <= max_weight:
-                curr = 0
-                continue
-            # 2nd child cannot fit, so take the next gondola
-        elif max_weight - w < w:
-            # empty gondola, remaining capacity is smaller than all subsequent (heavier) children
-            curr = 0
-            res += 1
+            j -= 1
+            curr = weights[j]
+            slots = 1
             continue
-        curr = w
-    # edge case: only 1 child
-    if curr > 0:
-        res += 1
+        curr += weights[i]
+        i += 1
+        slots += 1
+    res += 1  # the remaining unpaired child
     return res

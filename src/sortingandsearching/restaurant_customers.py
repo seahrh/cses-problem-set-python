@@ -22,6 +22,12 @@ Input:
 3 9
 Output:
 2
+
+SOLUTION
+Put all arrival and departures in a "timeline" array, then sort the array.
+Increment the count when it is an arrival, else decrement.
+Time O(N lg N)
+Space O(N)
 """
 import sys
 from typing import List, Tuple, NamedTuple

@@ -36,7 +36,7 @@ Space O(1)
 from typing import List
 
 
-def gondolas(max_weight: int, weights: List[int]) -> int:
+def solve(max_weight: int, weights: List[int]) -> int:
     weights.sort()
     res: int = 0
     i = 0
@@ -62,3 +62,10 @@ def gondolas(max_weight: int, weights: List[int]) -> int:
         slots += 1
     res += 1  # the remaining unpaired child
     return res
+
+
+if __name__ == "__main__":
+    _, _max = [int(s) for s in input().split()]
+    _weights: List[int] = [int(s) for s in input().split()]
+    _res: int = solve(_max, _weights)
+    print(_res)

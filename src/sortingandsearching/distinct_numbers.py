@@ -34,3 +34,10 @@ def count_distinct(arr: List[int]) -> int:
         if arr[i] != arr[i - 1]:
             res += 1
     return res
+
+
+if __name__ == "__main__":
+    _ = input()
+    _arr: List[int] = [int(s) for s in input().split()]
+    _res: int = count_distinct(_arr)
+    print(_res)

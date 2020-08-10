@@ -42,7 +42,7 @@ def solve(max_weight: int, weights: List[int]) -> int:
     i = 0
     j = len(weights) - 1
     curr = weights[j]
-    # a pair of slots under consideration
+    # number of slots currently occupied
     slots = 1
     # i must not meet j, cannot pair with ownself
     while i < j:
@@ -56,7 +56,7 @@ def solve(max_weight: int, weights: List[int]) -> int:
             j -= 1
             curr = weights[j]
             slots = 1
-            continue
+            continue  # required for the case where the heavy child takes the gondola alone
         curr += weights[i]
         i += 1
         slots += 1

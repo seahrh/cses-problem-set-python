@@ -36,7 +36,7 @@ Space O(1)
 from typing import List
 
 
-def allocate(apartments: List[int], applicants: List[int], tolerance: int) -> int:
+def solve(apartments: List[int], applicants: List[int], tolerance: int) -> int:
     if tolerance < 0:
         raise ValueError("tolerance must not be less than zero")
     apartments.sort()
@@ -55,3 +55,11 @@ def allocate(apartments: List[int], applicants: List[int], tolerance: int) -> in
         # so move on to the next applicant
         j += 1
     return res
+
+
+if __name__ == "__main__":
+    _, _, k = [int(s) for s in input().split()]
+    _applicants: List[int] = [int(s) for s in input().split()]
+    _apartments: List[int] = [int(s) for s in input().split()]
+    _res: int = solve(_apartments, _applicants, tolerance=k)
+    print(_res)

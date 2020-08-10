@@ -40,7 +40,7 @@ from collections import Counter
 from typing import List
 
 
-def prices(tickets: List[int], customers: List[int]) -> List[int]:
+def solve(tickets: List[int], customers: List[int]) -> List[int]:
     # Counter elements are returned in insertion order, so sort the tickets first.
     tickets.sort()
     c = Counter(tickets)  # O(N) space
@@ -55,3 +55,12 @@ def prices(tickets: List[int], customers: List[int]) -> List[int]:
             continue
         res.append(-1)
     return res
+
+
+if __name__ == "__main__":
+    _ = input()
+    _tickets: List[int] = [int(s) for s in input().split()]
+    _customers: List[int] = [int(s) for s in input().split()]
+    _res: List[int] = solve(_tickets, _customers)
+    for line in _res:
+        print(line)

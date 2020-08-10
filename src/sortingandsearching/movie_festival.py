@@ -19,6 +19,11 @@ Input:
 5 8
 Output:
 2
+
+SOLUTION
+Sort movies by end time. If the start time of the next movie falls after the last movie has ended, add it.
+Time O(N lg N)
+Space O(1)
 """
 from typing import List, NamedTuple
 

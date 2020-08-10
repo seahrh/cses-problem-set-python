@@ -38,7 +38,7 @@ class Timing(NamedTuple):
     is_arrival: bool
 
 
-def max_customers(customers: List[Tuple[int, int]]) -> int:
+def solve(customers: List[Tuple[int, int]]) -> int:
     curr = 0
     _max: int = -sys.maxsize
     timings: List[Timing] = []
@@ -53,3 +53,13 @@ def max_customers(customers: List[Tuple[int, int]]) -> int:
             curr -= 1
         _max = max(curr, _max)
     return _max
+
+
+if __name__ == "__main__":
+    n = int(input())
+    _customers: List[Tuple[int, int]] = []
+    for _ in range(n):
+        a, b = [int(s) for s in input().split()]
+        _customers.append((a, b))
+    _res: int = solve(_customers)
+    print(_res)

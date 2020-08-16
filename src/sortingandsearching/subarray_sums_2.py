@@ -22,6 +22,8 @@ CURRENT_SUM is the sum of elements from index 0 to current index.
 If there is a prefix sum matching (CURRENT_SUM - TARGET), then there is a "middle" subarray with TARGET sum.
 Time O(N)
 Space O(N)
+
+See https://www.geeksforgeeks.org/find-subarray-with-given-sum-in-array-of-integers/
 """
 from typing import List, Set, Dict
 

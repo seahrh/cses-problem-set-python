@@ -19,10 +19,18 @@ Output:
 3 4 5 5 2 1
 
 SOLUTION
+Find the median by using TWO self-balancing BST (upper half and lower half).
 Cannot use heap because deleting (finding) an arbitrary item in heap takes O(N) time.
+Self-balancing BST: find min/max in O(1) time, insert and delete in O(lg N) time.
+To make all elements unique, sort by value and index.
 """
 from collections import Counter
-from typing import List
+from typing import List, NamedTuple
+
+
+class Item(NamedTuple):
+    value: int
+    position: int
 
 
 def solve(k: int, arr: List[int]) -> List[int]:

@@ -32,14 +32,14 @@ def solve(arr: List[int]) -> int:
     _max: int = 0
     i, j = 0, 0
     while j < len(arr):
-        # grow the window on the right side
+        # grow the window to the right
         if arr[j] not in window:
             window.add(arr[j])
             j += 1
             # only need to update max when the window is growing
             _max = max(_max, len(window))
             continue
-        # shrink the window from the left side
+        # shrink the window from the left
         window.remove(arr[i])
         i += 1
     return _max

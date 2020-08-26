@@ -7,8 +7,8 @@ Output
 Print one integer: the maximum subarray sum.
 
 Constraints
-1≤n≤2⋅105
-−109≤xi≤109
+1≤n≤2⋅10^5
+−10^9≤xi≤10^9
 Example
 Input:
 8

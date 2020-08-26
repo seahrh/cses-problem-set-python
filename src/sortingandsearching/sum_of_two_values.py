@@ -6,7 +6,6 @@ The second line has n integers a1,a2,…,an: the array values.
 Output
 Print two integers: the positions of the values. If there are several solutions, you may print any of them.
 If there are no solutions, print IMPOSSIBLE.
-
 Constraints
 1≤n≤2⋅10^5
 1≤x,ai≤10^9

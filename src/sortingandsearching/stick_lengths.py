@@ -8,7 +8,6 @@ The first input line contains an integer n: the number of sticks.
 Then there are n integers: p1,p2,…,pn: the lengths of the sticks.
 Output
 Print one integer: the minimum total cost.
-
 Constraints
 1≤n≤2⋅10^5
 1≤pi≤10^9
@@ -19,7 +18,8 @@ Input:
 Output:
 5
 
-SOLUTION: Sort the array, use the median to divide the array into two equal-sized partitions.
+SOLUTION
+Sort the array, use the median to divide the array into two equal-sized partitions.
 Time O(N lg N)
 Space O(1)
 """

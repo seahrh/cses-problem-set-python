@@ -16,6 +16,9 @@ Output:
 1
 
 SOLUTION
+Do a prefix sum from left to right.
+There exists a subarray divisible by N if the same remainder is encountered twice or more
+(i.e. completed one full cycle of N)
 Time O(N)
 Space O(N): store the counts of remainders
 
@@ -23,7 +26,7 @@ See
 - https://www.geeksforgeeks.org/count-sub-arrays-sum-divisible-k/
 - https://en.wikipedia.org/wiki/Triangular_number
 """
-from typing import List, Set
+from typing import List
 
 
 def solve(arr: List[int]) -> int:

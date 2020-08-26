@@ -26,7 +26,7 @@ from typing import List
 def solve(target: int, arr: List[int]) -> int:
     i, j, _sum = 0, 0, 0
     res: int = 0
-    while j < len(arr) or _sum >= target:
+    while j < len(arr) or _sum >= target:  # handle the last subarray!
         if _sum < target:
             _sum += arr[j]
             j += 1

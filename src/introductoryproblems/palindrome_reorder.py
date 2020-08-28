@@ -13,34 +13,35 @@ Input:
 AAAACACBA
 Output:
 AACABACAA
+
+SOLUTION
+Find the single character that has odd count.
+Not possible for palindrome to have more than 1 char with odd count e.g. ___AB___  where A and B have odd count.
+Time O(N)
+Space O(N)
 """
-from collections import defaultdict
-from typing import Optional, DefaultDict
+from typing import Optional, Set
 
 
 def solve(s: str) -> Optional[str]:
-    counts: DefaultDict[str, int] = defaultdict(int)
-    odd_count = 0
+    odd_counts: Set[str] = set()
+    left: str = ""
     for c in s:
-        counts[c] += 1
-        if counts[c] % 2 == 1:
-            odd_count += 1
+        if c not in odd_counts:
+            odd_counts.add(c)
         else:
-            odd_count -= 1
-    if odd_count > 1:
+            # so far this char has even count, so add it to the left/right partitions
+            odd_counts.remove(c)
+            left += c
+    if len(odd_counts) > 1:
         return None
-    first: str = ""
-    second: str = ""
     mid: str = ""
     for code in range(ord("A"), ord("Z") + 1):
         c = chr(code)
-        if counts[c] % 2 == 1:
+        if c in odd_counts:
             mid = c
-            continue
-        frag: str = c * int(counts[c] / 2)
-        first += frag
-        second = frag + second
-    return first + mid + second
+    right: str = left[::-1]
+    return left + mid + right
 
 
 if __name__ == "__main__":

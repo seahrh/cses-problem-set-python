@@ -25,6 +25,12 @@ Input:
 2 3 5
 Output:
 8
+
+SOLUTION
+loop over the possibilities for last coin added.
+There are dp[x-v] ways to make x, when adding a coin with value v **last**.
+Time O(X)
+Space O(X): memo array
 """
 from bisect import bisect_right
 from typing import List

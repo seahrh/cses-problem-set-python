@@ -22,7 +22,8 @@ Output:
 3
 
 SOLUTION
-Bottom up DP: state is given by first C coins (exploit requirement in sorted order), target sum
+Bottom up DP
+dp[i][x] = number of ways to pick coins with sum x, using the first i coins (exploit requirement in sorted order)
 Memoization table has shape (#coins, target). Fill table row by row.
 Time O(X)
 Space O(X)

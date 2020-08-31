@@ -11,7 +11,7 @@ The only input line has an integer n.
 Output
 Print the number of ways modulo 10^9+7.
 Constraints
-1≤n≤106
+1≤n≤10^6
 Example
 Input:
 3
@@ -28,7 +28,7 @@ from typing import List
 
 
 def solve(n: int) -> int:
-    mod: int = int(1e9 + 7)
+    mod: int = int(1e9) + 7
     memo: List[int] = [0] * (n + 1)
     # required to initialize f(1) through f(6); single die to get sum
     memo[0] = 1

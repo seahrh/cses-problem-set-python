@@ -16,7 +16,7 @@ AACABACAA
 
 SOLUTION
 Find the single character that has odd count.
-Not possible for palindrome to have more than 1 char with odd count e.g. ___AB___  where A and B have odd count.
+Palindrome cannot have more than 1 char with odd count e.g. ___AB___  where A and B have odd count.
 Time O(N)
 Space O(N)
 """
@@ -35,11 +35,7 @@ def solve(s: str) -> Optional[str]:
             left += c
     if len(odd_counts) > 1:
         return None
-    mid: str = ""
-    for code in range(ord("A"), ord("Z") + 1):
-        c = chr(code)
-        if c in odd_counts:
-            mid = c
+    mid: str = next(iter(odd_counts), "")  # default empty string
     right: str = left[::-1]
     return left + mid + right
 

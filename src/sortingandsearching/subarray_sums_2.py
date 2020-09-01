@@ -16,7 +16,7 @@ Output:
 2
 
 SOLUTION
-Trick to find "middle" subarrays that are neither prefixes nor suffixes.
+Trick to find "non-prefix" subarrays that do not contain the 1st element.
 Traverse array from left to right. There are three regions containing the sums: PREFIX, TARGET, UNKNOWN.
 CURRENT_SUM is the sum of elements from index 0 to current index.
 If there is a prefix sum matching (CURRENT_SUM - TARGET), then there is a "middle" subarray with TARGET sum.
@@ -39,7 +39,7 @@ def solve(target: int, arr: List[int]) -> int:
             res += 1
         ps = _sum - target
         if ps in prefix_sums:
-            # number of "middle" subarrays ending at current index
+            # number of "non-prefix" subarrays ending at current index
             res += len(prefix_sums[ps])
         if _sum not in prefix_sums:
             prefix_sums[_sum] = {i}

@@ -19,7 +19,9 @@ Output:
 16
 
 SOLUTION
-Sort books by reading time. Divide the 'workload' into two almost even partitions.
+Sort books by reading time. This ensures they cannot read a book at the same time.
+So get a cumulative sum of reading times from both ends of the sorted books.
+Terminate when sum(left) >= sum(right).
 The result is the sum of the two partitions. There is no idle time even if one partition is longer than the other.
 Because the other reader can start reading the other partition as soon as she is done with the first partition.
 However this is not true if a partition contains only a single book as one book cannot be subdivided.

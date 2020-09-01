@@ -21,7 +21,7 @@ Output:
 SOLUTION
 Find the median by using TWO self-balancing BST (upper half and lower half).
 Cannot use heap because deleting (finding) an arbitrary item in heap takes O(N) time.
-Self-balancing BST: find min/max in O(1) time, insert and delete in O(lg N) time.
+Self-balancing BST: find min/max, insert and delete in O(lg N) time.
 To make all elements unique, sort by value and index.
 
 See

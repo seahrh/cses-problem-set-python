@@ -25,7 +25,7 @@ Start with the first tower and grow this array iteratively (maintain the sorted 
 Time O(N lg N): binary search where to insert in sorted array
 Space O(N): store the towers in an array
 """
-from bisect import bisect
+from bisect import bisect_right
 from typing import List
 
 
@@ -34,8 +34,8 @@ def solve(arr: List[int]) -> int:
         raise ValueError("array must not be empty")
     towers: List[int] = [arr[0]]
     for i in range(1, len(arr)):
-        # Time O(lg N): get the next item that is larger than arr[i]
-        j = bisect(towers, arr[i])
+        # Time O(lg N): get the nearest item on the right that is larger than arr[i]
+        j = bisect_right(towers, arr[i])
         if j == len(towers):
             towers.append(arr[i])
             continue

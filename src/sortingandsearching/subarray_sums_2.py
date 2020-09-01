@@ -7,7 +7,7 @@ Output
 Print one integer: the required number of subarrays.
 Constraints
 1≤n≤2⋅10^5
-−109≤x,ai≤10^9
+−10^9≤x,ai≤10^9
 Example
 Input:
 5 7

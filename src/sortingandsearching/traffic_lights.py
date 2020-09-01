@@ -24,9 +24,17 @@ Clarifications
 - Position 0 is not part of the length
 
 SOLUTION
-BST to insert position of traffic lights in O(lg X) time.
-Max heap to track longest length
-Frequency map to keep counts of lengths
+Data structures used
+1. Self-balancing BST stores the positions of traffic lights. Insert in O(lg N) time.
+Find adjacent traffic lights (bisect left and right) in O(lg N) time.
+2. SortedDict (BST + Set) stores KV pairs sorted by keys.
+K is distance of road without traffic light and V is the count.
+Suppose a traffic light is placed in the middle of a segment of length 30.
+Then delete 30 and insert two 15s. If 15 already exists, update its count.
+Insert, delete, get max in O(lg N) time. Update count in O(1) time.
+
+Time O(N lg N)
+Space O(N)
 """
 from collections import defaultdict
 from heapq import heappush, heappop

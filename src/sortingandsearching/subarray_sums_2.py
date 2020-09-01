@@ -35,10 +35,11 @@ def solve(target: int, arr: List[int]) -> int:
     _sum = 0
     for i in range(len(arr)):
         _sum += arr[i]
-        if _sum == target:
+        if _sum == target:  # prefix subarray
             res += 1
         ps = _sum - target
         if ps in prefix_sums:
+            # number of "middle" subarrays ending at current index
             res += len(prefix_sums[ps])
         if _sum not in prefix_sums:
             prefix_sums[_sum] = {i}

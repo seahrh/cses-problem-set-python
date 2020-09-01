@@ -38,7 +38,8 @@ def solve(books: List[int]) -> int:
         _sum += books[i]
         right_sum[i] = _sum
     _sum = 0
-    for i in range(0, len(books) - 1):
+    # invariant: left partition can be empty but right partition must have at least 1 book
+    for i in range(len(books) - 1):
         _sum += books[i]
         if _sum >= right_sum[i + 1]:
             return _sum + right_sum[i + 1]

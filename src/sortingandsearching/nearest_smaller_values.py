@@ -24,7 +24,7 @@ The all nearest smaller values (ANSV) problem is that of computing the NSV for e
 If k < j < i, then it is only possible for A_k to be a NSV for A_i if A_k < A_j,
 otherwise A_j will always be both smaller and "nearer".
 If A_j is smaller than A_i, then A_j is the NSV for A_i.
-Otherwise the array segment between A_k and A_j can be safely discarded
+Hence the subarray between A_k and A_j can be safely discarded
 because these values are greater than or equals A_j and hence cannot be NSV for A_i.
 
 Time O(N)

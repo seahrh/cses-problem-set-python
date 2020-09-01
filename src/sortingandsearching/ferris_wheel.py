@@ -35,26 +35,13 @@ def solve(max_weight: int, weights: List[int]) -> int:
     res: int = 0
     i = 0
     j = len(weights) - 1
-    curr = weights[j]
-    # number of slots currently occupied
-    slots = 1
-    # i must not meet j, cannot pair with ownself
     while i < j:
-        is_heavy_child_taken = False
-        if slots == 2:  # successful pairing
-            is_heavy_child_taken = True
-        elif curr + weights[i] > max_weight:  # heavy child takes the gondola alone
-            is_heavy_child_taken = True
-        if is_heavy_child_taken:
-            res += 1
-            j -= 1
-            curr = weights[j]
-            slots = 1
-            continue  # required for the case where the heavy child takes the gondola alone
-        curr += weights[i]
-        i += 1
-        slots += 1
-    res += 1  # the remaining unpaired child
+        if weights[j] + weights[i] <= max_weight:
+            i += 1
+        res += 1
+        j -= 1
+    if i == j:
+        res += 1
     return res
 
 

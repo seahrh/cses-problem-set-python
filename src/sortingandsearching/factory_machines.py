@@ -21,8 +21,8 @@ Output:
 Explanation: Machine 1 makes two products, machine 2 makes four products and machine 3 makes one product.
 
 SOLUTION
-The time range is a sorted array. Do binary search to find the solution.
-Time O(N lg T^2)
+Binary search on sorted timeline to find the solution.
+Time O(N lg KT)
 Space O(1)
 """
 from typing import List
@@ -33,7 +33,7 @@ def solve(target: int, machines: List[int]) -> int:
     lo = 1
     hi = _max * target
     res: int = hi
-    while lo <= hi:  # Time O(N lg T^2)
+    while lo <= hi:  # Time O(N lg KT)
         mid = int(lo / 2 + hi / 2)
         products = 0
         for m in machines:  # Time O(N)

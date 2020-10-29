@@ -2,10 +2,11 @@ dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
+cache: pip
 # command to install dependencies
 install:
   - pip install ."[tests]"
 # command to run tests
 script:
   - mypy src
-  - pytest -v --cov=src
+  - pytest -vv --cov=src
